@@ -7,8 +7,8 @@ void setup()
 {
   size(800, 800);
   background(0);
-  photo = loadImage("Desktop/hat.png");
-   photo.resize(125,125);
+  //photo = loadImage("Desktop/hat.png");
+  //photo.resize(125,125);
   for (int i=0; i<flakes.length; i++) {
     flakes[i] = new Snow(random(1, 20));
   }
@@ -63,7 +63,7 @@ void draw()
   for (int i=0; i<flakes.length; i++) { 
     flakes[i].display();
   }
-   image(photo, 225, 410);
+  //image(photo, 225, 410);
   int tempTime = millis() - time;
     if (tempTime > resetTime) {
       for(int i = 0; i < lights.length; i++)
