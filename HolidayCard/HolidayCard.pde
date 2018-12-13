@@ -1,6 +1,6 @@
 Snow[] flakes = new Snow[200];
 Light[] lights = new Light[60];
-PImage photo;
+//PImage photo;
 int time;
 int resetTime = 1000;
 void setup()
