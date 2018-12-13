@@ -8,28 +8,28 @@ void setup()
   size(800, 800);
   background(0);
   photo = loadImage("Desktop/hat.png");
-  photo.resize(125,125);
+  photo.resize(125, 125);
   for (int i=0; i<flakes.length; i++) {
     flakes[i] = new Snow(random(1, 20));
   }
   int tempX = 25;
   int tempY = 25;
   int tempColor = 1;
-  for(int i = 0; i<60; i++)
+  for (int i = 0; i<60; i++)
   {
     lights[i]=(new Light(tempX, tempY, 40, tempColor));
-    if(tempColor == 3){
+    if (tempColor == 3) {
       tempColor = 1;
     } else {
       tempColor++;
     }
-    if(i < 15){
+    if (i < 15) {
       tempX+=50;
-    }else if (i < 30){
+    } else if (i < 30) {
       tempY+=50;
-    }else if (i < 45){
+    } else if (i < 45) {
       tempX-=50;
-    }else{
+    } else {
       tempY-=50;
     }
   }
@@ -38,46 +38,53 @@ void setup()
 void draw()
 {
   background (0);
+  textSize(52);
+  text("Season's GRRReetings!", 125, 250);
   fill(255, 255, 255);
   rect (0, 700, 800, 100);
-    rect (0, 700, 800, 100);
-  fill(235,160,70);
-  ellipse(400,600,300,100);
-  ellipse(275,550,100,100);
-  rect(300,600,20,100);
-  rect(500,600,20,100);
-  rect(450,600,20,100);
-  rect(350,600,20,100);
-  rect(540,600,6,85);
+  rect (0, 700, 800, 100);
+  fill(235, 160, 70);
+  ellipse(400, 600, 300, 100);
+  rect(300, 600, 20, 100);
+  rect(500, 600, 20, 100);
+  rect(450, 600, 20, 100);
+  rect(350, 600, 20, 100);
+  rect(540, 600, 6, 85);
   fill(0);
-  rect(520,558,8,100);
-  rect(500,558,8,100);
-  rect(480,558,8,100);
-  rect(450,530,8,118);
-  rect(420,528,8,150);
-  rect(390,528,8,150);
-  rect(370,528,8,150);
-  rect(350,528,8,120);
-  rect(330,528,8,150);
-  fill(0,255,0);
-  ellipse(258,550,15,15);
-  ellipse(293,550,15,15);
+  rect(520, 558, 8, 100);
+  rect(500, 558, 8, 78);
+  rect(475, 550, 8, 100);
+  rect(442, 530, 8, 118);
+  rect(420, 528, 8, 150);
+  rect(390, 528, 8, 150);
+  rect(370, 528, 8, 150);
+  rect(350, 528, 8, 120);
+  rect(330, 528, 8, 148);
+  rect(310, 528, 8, 113);
+  rect(290, 528, 8, 148);
+  fill(235, 160, 70);
+  stroke(2);
+  ellipse(275, 550, 100, 100);
+  noStroke();
+  fill(0, 255, 0);
+  ellipse(258, 550, 15, 15);
+  ellipse(293, 550, 15, 15);
   for (int i=0; i<flakes.length; i++) { 
     flakes[i].display();
   }
   image(photo, 225, 410);
   int tempTime = millis() - time;
-    if (tempTime > resetTime) {
-      for(int i = 0; i < lights.length; i++)
-      {
-        lights[i].flash();
-      }
-      time = millis();
-    }
-  for(int i = 0; i < lights.length; i++)
+  if (tempTime > resetTime) {
+    for (int i = 0; i < lights.length; i++)
     {
-      lights[i].show();
+      lights[i].flash();
     }
+    time = millis();
+  }
+  for (int i = 0; i < lights.length; i++)
+  {
+    lights[i].show();
+  }
 }
 class Light
 {
@@ -92,9 +99,9 @@ class Light
     this.y = y;
     this.size = size;
     this.col = col;
-    if(col == 1){
+    if (col == 1) {
       c = color(220, 0, 0);
-    } else if (col == 2){
+    } else if (col == 2) {
       c = color(0, 220, 0);
     } else {
       c = color(0, 0, 220);
@@ -102,10 +109,10 @@ class Light
   }
   void flash()
   {
-    if(col == 1){
+    if (col == 1) {
       c = color(220, 0, 0);
       col++;
-    } else if (col == 2){
+    } else if (col == 2) {
       c = color(0, 220, 0);
       col++;
     } else {
@@ -126,8 +133,8 @@ class Snow {
   float diameter;
 
   Snow(float uhhh) {
-    x = random(0,width+1000);
-    y = random(-1000,800);
+    x = random(0, width+1000);
+    y = random(-10000, 800);
     diameter = 8;
   }
 
@@ -135,6 +142,6 @@ class Snow {
     noStroke();
     fill(230);
     ellipse(x, y, 8, 8);
-    y = y + .8;
+    y = y + 0.5;
   }
 }
